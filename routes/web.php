@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Models\Listing;
+use App\Models\Listings;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,13 +36,13 @@ Route::get('/search', function(Request $request) {
 Route::get('/', function () {
     return view('listings', [
         'heading' => 'Latest Listing',
-        'listings' => Listing::all()
+        'listings' => Listings::all()
     ]);
 });
 
-#Single listing by ID
+# Single listing by ID
 Route::get('/listing/{id}', function ($id) {
     return view('listing', [
-        'listing' => Listing::find($id)
+        'listing' => Listings::find($id)
     ]);
 });

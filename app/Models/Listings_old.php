@@ -1,7 +1,7 @@
 <?php
     namespace App\Models;
 
-    class Listing {
+    class Listings {
         public static function all (){
             return [
                 [
