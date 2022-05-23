@@ -41,8 +41,22 @@ Route::get('/', function () {
 });
 
 # Single listing by ID
-Route::get('/listing/{id}', function ($id) {
+## Old School
+// Route::get('/listings/{id}', function ($id) {
+//     $listing = Listings::find($id);
+
+//     if($listing){
+//         return view('listing', [
+//             'listing' => $listing
+//         ]);
+//     } else {
+//         abort(404);
+//     }
+// });
+
+## New School. Route Model Binding
+Route::get('/listing/{listing}', function(Listings $listing){
     return view('listing', [
-        'listing' => Listings::find($id)
+        'listing' => $listing
     ]);
 });
