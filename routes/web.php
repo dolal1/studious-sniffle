@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ListingsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,14 @@ use App\Models\Listings;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+// All Listings
+Route::get('/', [ListingsController::class, 'index']);
+
+// Single Listing
+Route::get('/listings/{listing}', [ListingsController::class, 'show']);
+
 
 /*Route::get('/hello', function() {
     return response('<h1>Hello World</h1>', 200)
@@ -32,13 +41,13 @@ Route::get('/search', function(Request $request) {
 });
 */
 
-# All Listing
-Route::get('/', function () {
-    return view('listings', [
-        'heading' => 'Latest Listing',
-        'listings' => Listings::all()
-    ]);
-});
+// # All Listing
+// Route::get('/', function () {
+//     return view('listings', [
+//         'heading' => 'Latest Listing',
+//         'listings' => Listings::all()
+//     ]);
+// });
 
 # Single listing by ID
 ## Old School
@@ -55,8 +64,8 @@ Route::get('/', function () {
 // });
 
 ## New School. Route Model Binding
-Route::get('/listings/{listing}', function(Listings $listing){
-    return view('listing', [
-        'listing' => $listing
-    ]);
-});
+// Route::get('/listings/{listing}', function(Listings $listing){
+//     return view('listing', [
+//         'listing' => $listing
+//     ]);
+// });
