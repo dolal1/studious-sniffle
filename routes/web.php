@@ -55,7 +55,7 @@ Route::get('/', function () {
 // });
 
 ## New School. Route Model Binding
-Route::get('/listing/{listing}', function(Listings $listing){
+Route::get('/listings/{listing}', function(Listings $listing){
     return view('listing', [
         'listing' => $listing
     ]);
